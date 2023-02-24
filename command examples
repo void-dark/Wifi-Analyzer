@@ -1,0 +1,17 @@
+From Kali_Updated 
+
+chmod 755 wifi-analyzer
+aircrack-ng ts-01.cap -3 convert
+aircrack-ng ts-01.cap  convert
+aircrack-ng -w  ts-01.cap  convert
+aircrack-ng ts-01.cap -j convert
+aircrack-ng ts-01.cap -J convert
+hccap2john convert.hccap>test.txt
+john test.txt
+
+python3 --version
+udo apt-get update
+git clone https://github.com/sinarest1608/Number-plate-search.git
+---------------------------------------------------------------------
+
+
